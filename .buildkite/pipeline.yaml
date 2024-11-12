@@ -12,7 +12,7 @@ steps:
     fields:
       - text: "Name"
         key: "name"
-  - block: "AWS Lambda Function Auto Approver"
+  - block: ":aws-lambda: AWS Lambda Function Auto Approver :aws-lambda:"
     label: "LambdaApprove"
   - label: "🚀 Run 🚀"
     command:
