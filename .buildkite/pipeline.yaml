@@ -21,6 +21,6 @@ steps:
       - './hello-binary "$(buildkite-agent meta-data get name)"'
     key: "execution"
   - wait: ~
-  - label: ":partyparrot: Success :partyparrott:"
+  - label: ":partyparrot: Success :partyparrot:"
     command: ".buildkite/success.sh"
     depends_on: "execution"
