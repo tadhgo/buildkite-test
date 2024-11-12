@@ -1,0 +1,4 @@
+name: "Go Test App with Docker"
+steps:
+  - label: ":go:"
+    command: "buildkite-agent pipeline upload"

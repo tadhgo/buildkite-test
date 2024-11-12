@@ -1,0 +1,23 @@
+steps:
+  - label: "🔨 Build 🔨"
+    plugins:
+      docker#v5.12.0:
+        image: "golang:latest"
+        command: ["go", "build", "-buildvcs=false", "-o", "hello-binary", "./hello"]
+    artifact_paths: 
+      - "hello-binary"
+  - block: "Input Name"
+    label: "Input Name"
+    prompt: "Input your name"
+    fields:
+      - text: "Name"
+        key: "name"
+  - block: "AWS Lambda Function Auto Approver"
+    label: "LambdaApprove"
+  - label: "🚀 Run 🚀"
+    command:
+      - "buildkite-agent artifact download 'hello-binary' ."
+      - "chmod +x ./hello-binary"
+      - './hello-binary "$(buildkite-agent meta-data get name)"'
+      - wait: ~
+      - command: ".buildkite/success.sh"
