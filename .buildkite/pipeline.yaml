@@ -19,5 +19,8 @@ steps:
       - "buildkite-agent artifact download 'hello-binary' ."
       - "chmod +x ./hello-binary"
       - './hello-binary "$(buildkite-agent meta-data get name)"'
+    key: "execution"
   - wait: ~
+  - label: ":partyparrot: Success :partyparrott:"
     command: ".buildkite/success.sh"
+    depends_on: "execution"
