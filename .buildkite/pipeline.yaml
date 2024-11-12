@@ -19,5 +19,5 @@ steps:
       - "buildkite-agent artifact download 'hello-binary' ."
       - "chmod +x ./hello-binary"
       - './hello-binary "$(buildkite-agent meta-data get name)"'
-      - wait: ~
-      - command: ".buildkite/success.sh"
+  - wait: ~
+    command: ".buildkite/success.sh"
